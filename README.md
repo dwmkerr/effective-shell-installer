@@ -1,5 +1,7 @@
 # effective-shell-installer
 
+[![Release Please](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml)
+
 This is the install script for the https://effective-shell.com samples. This repo hosts the https://effective.sh installer.
 
 ## Versioning
