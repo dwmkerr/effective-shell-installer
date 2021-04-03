@@ -1,0 +1,19 @@
+name: Pull Request
+
+# This workflow verifies that the site will build for pull requests.
+on: [pull_request]
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Run the tests.
+    - name: Test
+      run: make test
+
+    # Ensure we can build.
+    - name: Build
+      run: make build
