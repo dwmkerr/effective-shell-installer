@@ -34,7 +34,7 @@
     
     # Print a debug level message.
     es_debug () {
-      if [[ "${es_debug}" -eq "1" ]]; then
+      if [ "${es_debug}" -eq "1" ]; then
           command printf "effective-shell(debug): %s\\n" "$*" 2>/dev/null
       fi
     }
@@ -48,7 +48,7 @@
     es_echo "preparing to install the 'effective-shell.com' samples..."
 
     # If the user already has an effective shell folder then bail out.
-    if [[ -e "${es_dir}" ]]; then
+    if [ -e "${es_dir}" ]; then
         es_echo "the '${es_dir}' folder already exists"
         es_echo "please delete the '${es_dir}' folder and try again"
         exit 1
