@@ -56,6 +56,8 @@
         es_debug "the '${es_dir}' folder does not exist"
     fi
 
+    # TODO: ask the user if the want to backup their old folder, or just delete it.
+
     # Create a temporary location to download the samples to.
     # Create a path in our temp dir to hold the tarball.
     es_tmp_dir=$(mktemp -d 2>/dev/null || mktemp -d -t 'effective-shell')
