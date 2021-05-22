@@ -21,6 +21,9 @@
 
 #!/usr/bin/env bash
 
+# Bail on errors.
+set -e
+
 # We put everything in braces - this is to ensure we execute only when the whole
 # script is downloaded.
 {
@@ -29,15 +32,17 @@
     # be useful for automated testing.
     #   es_force_install: if set, we will install the samples even if they
     #                     appear to be at the same version as the download.
+    #   es_script_version: updating during the build to the version.txt
     es_interactive="1"
     es_source="https://effective-shell.com/downloads/effective-shell-playground.tar.gz"
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
+    es_script_version="%%ES_SCRIPT_VERSION%%"
     
     # Print a debug level message.
     es_debug () {
-      if [ "${es_debug}" == "1" ]; then
+      if [ "${es_debug}" = "1" ]; then
           command printf "effective-shell(debug): %s\\n" "$*" 2>/dev/null
       fi
     }
@@ -48,7 +53,7 @@
     }
 
     # In debug mode, show the values of the variables.
-    if [ "${es_debug}" == "1" ]; then
+    if [ "${es_debug}" = "1" ]; then
         es_debug "Script Parameters:"
         es_debug "  es_interactive: ${es_interactive}"
         es_debug "  es_source: ${es_source}"
@@ -58,6 +63,7 @@
     fi
 
     # Inform the user that we are going to download the samples.
+    es_echo "effective-shell-installer v${es_script_version}:"
     es_echo "preparing to download the 'effective-shell.com' samples..."
 
     # Create a temporary location to download the samples to.
@@ -89,7 +95,7 @@
     
     # If the downloaded version is the same as the installed version and we have
     # NOT set the 'force' option, we can finish now.
-    if [ "${version_downloaded}" == "${version_installed}" ] && [ "${es_force_install}" != "1" ]
+    if [ "${version_downloaded}" = "${version_installed}" ] && [ "${es_force_install}" != "1" ]
     then
         es_echo "the installed version is also ${version_installed}, skipping install"
         es_echo "if yout want to install anyway, run with 'ES_FORCE_INSTALL=1' option set"
