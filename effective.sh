@@ -60,10 +60,11 @@ set -e
         es_debug "  es_dir: ${es_dir}"
         es_debug "  es_debug: ${es_debug}"
         es_debug "  es_force_install: ${es_force_install}"
+        es_debug "  es_script_version: ${es_script_version}"
     fi
 
     # Inform the user that we are going to download the samples.
-    es_echo "effective-shell-installer v${es_script_version}:"
+    es_debug "effective-shell-installer v${es_script_version}:"
     es_echo "preparing to download the 'effective-shell.com' samples..."
 
     # Create a temporary location to download the samples to.
