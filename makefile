@@ -8,4 +8,4 @@ build:
 	rm -rf build || true
 	mkdir build
 	cp effective.sh build/index.html
-	sed -i '' 's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
+	perl -i -pe's/%%ES_SCRIPT_VERSION%%/$(shell cat version.txt)/' build/index.html
