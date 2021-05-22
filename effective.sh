@@ -32,11 +32,13 @@ set -e
     # be useful for automated testing.
     #   es_force_install: if set, we will install the samples even if they
     #                     appear to be at the same version as the download.
+    #   es_script_version: updating during the build to the version.txt
     es_interactive="1"
     es_source="https://effective-shell.com/downloads/effective-shell-playground.tar.gz"
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
+    es_script_version="%%ES_SCRIPT_VERSION%%"
     
     # Print a debug level message.
     es_debug () {
@@ -61,6 +63,7 @@ set -e
     fi
 
     # Inform the user that we are going to download the samples.
+    es_echo "effective-shell-installer v${es_script_version}:"
     es_echo "preparing to download the 'effective-shell.com' samples..."
 
     # Create a temporary location to download the samples to.
