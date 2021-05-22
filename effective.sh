@@ -21,6 +21,9 @@
 
 #!/usr/bin/env bash
 
+# Bail on errors.
+set -e
+
 # We put everything in braces - this is to ensure we execute only when the whole
 # script is downloaded.
 {
@@ -37,7 +40,7 @@
     
     # Print a debug level message.
     es_debug () {
-      if [ "${es_debug}" == "1" ]; then
+      if [ "${es_debug}" = "1" ]; then
           command printf "effective-shell(debug): %s\\n" "$*" 2>/dev/null
       fi
     }
@@ -48,7 +51,7 @@
     }
 
     # In debug mode, show the values of the variables.
-    if [ "${es_debug}" == "1" ]; then
+    if [ "${es_debug}" = "1" ]; then
         es_debug "Script Parameters:"
         es_debug "  es_interactive: ${es_interactive}"
         es_debug "  es_source: ${es_source}"
@@ -89,7 +92,7 @@
     
     # If the downloaded version is the same as the installed version and we have
     # NOT set the 'force' option, we can finish now.
-    if [ "${version_downloaded}" == "${version_installed}" ] && [ "${es_force_install}" != "1" ]
+    if [ "${version_downloaded}" = "${version_installed}" ] && [ "${es_force_install}" != "1" ]
     then
         es_echo "the installed version is also ${version_installed}, skipping install"
         es_echo "if yout want to install anyway, run with 'ES_FORCE_INSTALL=1' option set"
