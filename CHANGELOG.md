@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.2.0...v0.3.0) (2021-05-22)
+
+
+### Features
+
+* the installer version is shown during installation ([84273a4](https://www.github.com/dwmkerr/effective-shell-installer/commit/84273a4dbb6ffe4c796eec94d9ade6043ed17c99))
+
+
+### Bug Fixes
+
+* fix non-portable equals operator ([7ce1016](https://www.github.com/dwmkerr/effective-shell-installer/commit/7ce10167fca7c55cedd146f10e5eb5bb039d46a5))
+
 ## [0.2.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.1.2...v0.2.0) (2021-05-22)
 
 
