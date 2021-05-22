@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.3.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.3.0...v0.3.1) (2021-05-22)
+
+
+### Bug Fixes
+
+* replace sed with perl ([36938ba](https://www.github.com/dwmkerr/effective-shell-installer/commit/36938ba5b25ef7b9897b20caee378977041466b5))
+
 ## [0.3.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.2.0...v0.3.0) (2021-05-22)
 
 
