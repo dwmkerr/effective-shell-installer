@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.1.2...v0.2.0) (2021-05-22)
+
+
+### Features
+
+* offer option to backup old work ([a8c864c](https://www.github.com/dwmkerr/effective-shell-installer/commit/a8c864c148342c4268d109c0b8b27c67f1efae90))
+* only update samples if version numbers are different ([adbed8a](https://www.github.com/dwmkerr/effective-shell-installer/commit/adbed8a81b0f994c0ede3a65dcae4e26605c3088))
+
 ### [0.1.2](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.1.1...v0.1.2) (2021-04-03)
 
 
