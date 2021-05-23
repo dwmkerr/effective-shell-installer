@@ -52,6 +52,15 @@ set -e
       command printf "effective-shell: %s\\n" "$*" 2>/dev/null
     }
 
+    # Exit with a given code, after cleaning up.
+    es_exit() {
+        # Cleanup the temporary files/folders if they exist.
+        if [ -e "${es_tmp_tar}" ]; then rm "${es_tmp_tar}"; fi
+        if [ -d "${es_tmp_dir}" ]; then rm -rf "${es_tmp_dir}"; fi
+        exit_code=${@*[0]:0}
+        exit "${exit_code}"
+    }
+
     # In debug mode, show the values of the variables.
     if [ "${es_debug}" = "1" ]; then
         es_debug "Script Parameters:"
@@ -100,8 +109,7 @@ set -e
     then
         es_echo "the installed version is also ${version_installed}, skipping install"
         es_echo "if yout want to install anyway, run with 'ES_FORCE_INSTALL=1' option set"
-        rm -rf "${es_tmp_dir}"
-        exit 0
+        es_exit 0
     fi
 
     # Inform the user that we're going to try and install the samples.
@@ -111,8 +119,7 @@ set -e
     if [ -e "${es_dir}" ]; then
         es_echo "the '${es_dir}' folder already exists"
         es_echo "please delete the '${es_dir}' folder and try again"
-        rm -rf "${es_tmp_dir}"
-        exit 1
+        es_exit 1
     else
         es_debug "the '${es_dir}' folder does not exist"
     fi
@@ -124,7 +131,7 @@ set -e
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"
 
     # Cleanup the temporary directory.
-    rm -rf "${es_tmp_dir}"
+    es_exit 0
 
 # See the comment at the top - all funtionality is in braces so that we execute
 # the script in its entirity when it is downloaded, rather than bit by bit.
