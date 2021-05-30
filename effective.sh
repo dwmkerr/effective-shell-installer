@@ -52,6 +52,15 @@ set -e
       command printf "effective-shell: %s\\n" "$*" 2>/dev/null
     }
 
+    # Define a cleanup function that we will call when the script exits or if
+    # it is aborted.
+    es_cleanup () {
+        es_debug "cleaning up..."
+        # Cleanup the temporary files/folders if they exist.
+        if [ -e "${es_tmp_tar}" ]; then rm "${es_tmp_tar}"; fi
+        if [ -d "${es_tmp_dir}" ]; then rm -rf "${es_tmp_dir}"; fi
+    }
+
     # In debug mode, show the values of the variables.
     if [ "${es_debug}" = "1" ]; then
         es_debug "Script Parameters:"
@@ -66,6 +75,9 @@ set -e
     # Inform the user that we are going to download the samples.
     es_debug "effective-shell-installer v${es_script_version}:"
     es_echo "preparing to download the 'effective-shell.com' samples..."
+
+    # Before we start creating temporary files and folders, set our traps.
+    trap "es_cleanup" SIGINT SIGTERM EXIT
 
     # Create a temporary location to download the samples to.
     # Create a path in our temp dir to hold the tarball.
@@ -100,7 +112,6 @@ set -e
     then
         es_echo "the installed version is also ${version_installed}, skipping install"
         es_echo "if yout want to install anyway, run with 'ES_FORCE_INSTALL=1' option set"
-        rm -rf "${es_tmp_dir}"
         exit 0
     fi
 
@@ -111,7 +122,6 @@ set -e
     if [ -e "${es_dir}" ]; then
         es_echo "the '${es_dir}' folder already exists"
         es_echo "please delete the '${es_dir}' folder and try again"
-        rm -rf "${es_tmp_dir}"
         exit 1
     else
         es_debug "the '${es_dir}' folder does not exist"
@@ -123,8 +133,8 @@ set -e
     # Inform the user that the installation is complete.
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"
 
-    # Cleanup the temporary directory.
-    rm -rf "${es_tmp_dir}"
+    # We have completed successfully.
+    exit 0
 
 # See the comment at the top - all funtionality is in braces so that we execute
 # the script in its entirity when it is downloaded, rather than bit by bit.
