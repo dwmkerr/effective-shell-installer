@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.3.1...v0.4.0) (2021-05-30)
+
+
+### Features
+
+* cleanup on ctrl+c ([fb19e38](https://www.github.com/dwmkerr/effective-shell-installer/commit/fb19e38ae61848c3394dd7906ec9155bb97716ff))
+
 ### [0.3.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.3.0...v0.3.1) (2021-05-22)
 
 
