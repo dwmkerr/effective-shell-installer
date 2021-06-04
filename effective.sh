@@ -77,7 +77,7 @@ set -e
     es_echo "preparing to download the 'effective-shell.com' samples..."
 
     # Before we start creating temporary files and folders, set our traps.
-    trap "es_cleanup" SIGINT SIGTERM EXIT
+    trap "es_cleanup" INT TERM EXIT
 
     # Create a temporary location to download the samples to.
     # Create a path in our temp dir to hold the tarball.
