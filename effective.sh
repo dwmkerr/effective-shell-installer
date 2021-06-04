@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Installer for the "Effective Shell" samples. If you are looking for the online
+# book, just go to:
+# 
+#   https://effective-shell.com
+
 # This script is used to allow a user to quickly download the samples for the
 # 'effective shell' book on their local machine.
 # 
