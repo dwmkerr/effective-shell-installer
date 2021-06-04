@@ -7,6 +7,13 @@
 
 * remove `SIG` from traps ([c00fe7a](https://www.github.com/dwmkerr/effective-shell-installer/commit/c00fe7a000aff7135e8e93b7fcd8143f2254e674))
 
+### [0.4.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.0...v0.4.1) (2021-06-04)
+
+
+### Bug Fixes
+
+* remove `SIG` from traps ([c00fe7a](https://www.github.com/dwmkerr/effective-shell-installer/commit/c00fe7a000aff7135e8e93b7fcd8143f2254e674))
+
 ## [0.4.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.3.1...v0.4.0) (2021-05-30)
 
 
