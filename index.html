@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Installer for the "Effective Shell" samples. If you are looking for the online
+# book, just go to:
+# 
+#   https://effective-shell.com
+
 # This script is used to allow a user to quickly download the samples for the
 # 'effective shell' book on their local machine.
 # 
@@ -38,7 +43,7 @@ set -e
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
-    es_script_version="0.4.0"
+    es_script_version="0.4.1"
     
     # Print a debug level message.
     es_debug () {
@@ -77,7 +82,7 @@ set -e
     es_echo "preparing to download the 'effective-shell.com' samples..."
 
     # Before we start creating temporary files and folders, set our traps.
-    trap "es_cleanup" SIGINT SIGTERM EXIT
+    trap "es_cleanup" INT TERM EXIT
 
     # Create a temporary location to download the samples to.
     # Create a path in our temp dir to hold the tarball.
