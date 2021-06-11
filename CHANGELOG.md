@@ -1,5 +1,18 @@
 # Changelog
 
+### [0.4.3](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.1...v0.4.3) (2021-06-11)
+
+
+### Features
+
+* offer selection to delete/overwrite/quit if existing folder ([968dbc3](https://www.github.com/dwmkerr/effective-shell-installer/commit/968dbc34a127cc80e457b9e56a30a54a376fbb05))
+
+
+### Miscellaneous Chores
+
+* release 0.4.2 ([3510f65](https://www.github.com/dwmkerr/effective-shell-installer/commit/3510f65e8aa8244c794d92dcdaf8413dfd9cb9da))
+* release 0.4.3 ([4d69a07](https://www.github.com/dwmkerr/effective-shell-installer/commit/4d69a07996c1d7e5ef3556b11ef744b5d8a17cb8))
+
 ### [0.4.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.0...v0.4.1) (2021-06-04)
 
 
