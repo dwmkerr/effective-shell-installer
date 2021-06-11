@@ -18,7 +18,7 @@ That's it! This will download the Effective Shell samples to the folder:
 ~/effective-shell
 ```
 
-If you already have the samples and they appear to be at the same version of the online samples, the script will not attempt to download and install the same version again. You can force the script to install them anyway by setting `ES_FORCE_INSTALL` to `1`.
+If you already have the samples and they appear to be at the same version of the online samples, the script will not attempt to download and install the same version again. You can force the script to install them anyway by setting `ES_FORCE_INSTALL=1`.
 
 If the `~/effective-shell` folder already exists, you can choose one of three options:
 
