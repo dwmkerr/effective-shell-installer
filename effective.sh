@@ -44,6 +44,7 @@ set -e
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
     es_script_version="%%ES_SCRIPT_VERSION%%"
+    es_existing_folder_action="${ES_EXISTING_FOLDER_ACTION}"
     
     # Print a debug level message.
     es_debug () {
@@ -54,7 +55,9 @@ set -e
 
     # Print a message with a hint it's from the effective shell script.
     es_echo () {
-      command printf "effective-shell: %s\\n" "$*" 2>/dev/null
+      local green='\e[0;32m'
+      local reset='\e[0m'
+      command printf "${green}effective-shell${reset}: %s\\n" "$*" 2>/dev/null
     }
 
     # Define a cleanup function that we will call when the script exits or if
@@ -91,8 +94,8 @@ set -e
     es_debug "temporary directory is '${es_tmp_dir}'..."
     es_debug "temporary download tarball is '${es_tmp_tar}'..."
 
-    # Download the samples.
-    curl --fail --compressed -q -s "${es_source}" -o "${es_tmp_tar}"
+    # Download the samples. Don't show any output.
+    curl --fail --compressed -q -s "${es_source}" -o "${es_tmp_tar}" >/dev/null 2>&1
 
     # Extract the samples.
     tar -xzf "${es_tmp_tar}" -C "${es_tmp_dir}"
@@ -123,17 +126,54 @@ set -e
     # Inform the user that we're going to try and install the samples.
     es_echo "preparing to install the 'effective-shell.com' samples..."
 
-    # If the user already has an effective shell folder then bail out.
+    # Does the samples folder already exist?
     if [ -e "${es_dir}" ]; then
-        es_echo "the '${es_dir}' folder already exists"
-        es_echo "please delete the '${es_dir}' folder and try again"
-        exit 1
+        # It does, ask the user what they would like to do. The
+        # es_existing_folder_action variable may have been set from the
+        # environment, so we might not have to show the menu.
+        choice="${es_existing_folder_action}"
+        # Note we avoid Bash-isms in the if statement to maximize compatiblity
+        # for the script.
+        while [ "${choice}" != "d" ] && [ "${choice}" != "o" ] && [ "${choice}" != "q" ]; do
+            es_echo "the '${es_dir}' folder already exists, would you like to:"
+            es_echo "[d]elete - remove the existing folder"
+            es_echo "[o]verwrite - extract over the existing folder"
+            es_echo "[q]uit"
+
+            # Remember 'read -p' doesn't work in zsh, so printf/read for
+            # maximum compatiblity. We run 'read' in a subshell so that we can
+            # cancel with Ctrl+C.
+            printf "Your choice (d/o/q): "
+            choice=$(read choice; echo ${choice})
+        done
+
+        case ${choice} in
+            d)
+                es_echo "deleting '${es_dir}'..."
+                rm -rf "${es_dir}"
+                ;;
+            o)
+                es_echo "overwriting '${es_dir}'..."
+                # Note: no action needed, we'll just replace the existing 
+                # folder in the next step.
+                ;;
+            q)
+                es_echo "quitting..."
+                ;;
+            *)
+                es_echo "unexpected choice '${choice}'..."
+                exit 1
+                ;;
+        esac
     else
         es_debug "the '${es_dir}' folder does not exist"
     fi
 
-    # Move the samples to the target effective shell directory.
-    mv "${es_tmp_dir}" "${es_dir}"
+    # Move the samples to the target effective shell directory. Note that the
+    # directory might already exist and have contents if the user has chosen to
+    # overwrite the existing folder. So we copy, then delete the source.
+    cp -rf "${es_tmp_dir}" "${es_dir}"
+    rm -rf "${es_tmp_dir}"
 
     # Inform the user that the installation is complete.
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"

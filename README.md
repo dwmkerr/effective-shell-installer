@@ -12,18 +12,31 @@ To install the [Effective Shell](https://effective-shell.com) samples, just run:
 curl effective.sh | sh
 ```
 
-That's it!
+That's it! This will download the Effective Shell samples to the folder:
 
-If you run the script and the downloaded samples have the same version number as the installed samples, the installed samples will not be overwritten.
+```
+~/effective-shell
+```
+
+If you already have the samples and they appear to be at the same version of the online samples, the script will not attempt to download and install the same version again. You can force the script to install them anyway by setting `ES_FORCE_INSTALL` to `1`.
+
+If the `~/effective-shell` folder already exists, you can choose one of three options:
+
+- `d` - delete and install - this option will delete the existing folder and replace it with the downloaded folder
+- `o` - overwrite - this option will extract the downloaded samples over the existing folder, meaning files you have added will be preserved (but files that you have _modified_ will be overwritten)
+- `q` - quit - this will abort the script, allowing you to backup the existing folder or move it and then run the script again
+
+If you want to run the installer non-interactively, you can set `ES_EXISTING_FOLDER_ACTION` to either `d`, `o` or `q` to provide a choice from the options above.
 
 ## Installation Options
 
 There are a number of options that can be set to change how the samples are installed.
 
-| Option             | Default | Usage                                                                          |
-|--------------------|---------|--------------------------------------------------------------------------------|
-| `ES_DEBUG`         | `0`     | If set to `1` debug level log messages are printed.                            |
-| `ES_FORCE_INSTALL` | `0`     | If set to `1` then samples are installed even if they appear to be up to date. |
+| Option                      | Default   | Usage                                                                              |
+|-----------------------------|-----------|------------------------------------------------------------------------------------|
+| `ES_DEBUG`                  | `0`       | If set to `1` debug level log messages are printed.                                |
+| `ES_FORCE_INSTALL`          | `0`       | If set to `1` then samples are installed even if they appear to be up to date.     |
+| `ES_EXISTING_FOLDER_ACTION` | (Not Set) | Set to `d`, `o`, or `q` to delete, overwrite or quit if the samples folder exists. |
 
 ## Versioning
 
