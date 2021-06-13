@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.4.4](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.3...v0.4.4) (2021-06-13)
+
+
+### Bug Fixes
+
+* 'read' reads from /dev/tty ([765041e](https://www.github.com/dwmkerr/effective-shell-installer/commit/765041ef89817a8cca60ef595dfcff397357ff04))
+
 ### [0.4.3](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.1...v0.4.3) (2021-06-11)
 
 
