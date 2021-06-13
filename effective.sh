@@ -142,9 +142,12 @@ set -e
 
             # Remember 'read -p' doesn't work in zsh, so printf/read for
             # maximum compatiblity. We run 'read' in a subshell so that we can
-            # cancel with Ctrl+C.
+            # cancel with Ctrl+C. Also note that if we curl the script into a
+            # shell, the shell won't have a terminal and 'read' will immediately
+            # abort. So when we read, read from the controlling terminals tty
+            # device.
             printf "Your choice (d/o/q): "
-            choice=$(read choice; echo ${choice})
+            choice=$(read choice < /dev/tty; echo ${choice})
         done
 
         case ${choice} in
