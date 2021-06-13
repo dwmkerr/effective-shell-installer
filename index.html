@@ -43,7 +43,7 @@ set -e
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
-    es_script_version="0.4.3"
+    es_script_version="0.4.4"
     es_existing_folder_action="${ES_EXISTING_FOLDER_ACTION}"
     
     # Print a debug level message.
@@ -142,9 +142,12 @@ set -e
 
             # Remember 'read -p' doesn't work in zsh, so printf/read for
             # maximum compatiblity. We run 'read' in a subshell so that we can
-            # cancel with Ctrl+C.
+            # cancel with Ctrl+C. Also note that if we curl the script into a
+            # shell, the shell won't have a terminal and 'read' will immediately
+            # abort. So when we read, read from the controlling terminals tty
+            # device.
             printf "Your choice (d/o/q): "
-            choice=$(read choice; echo ${choice})
+            choice=$(read choice < /dev/tty; echo ${choice})
         done
 
         case ${choice} in
