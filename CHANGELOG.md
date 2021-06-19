@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.4...v0.5.0) (2021-06-19)
+
+
+### Features
+
+* update to new samples location ([0b84ea0](https://www.github.com/dwmkerr/effective-shell-installer/commit/0b84ea0a453c9f51e999fb11bedcc59c162af1b7))
+
 ### [0.4.4](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.3...v0.4.4) (2021-06-13)
 
 
