@@ -178,8 +178,10 @@ set -e
     cp -rf "${es_tmp_dir}" "${es_dir}"
     rm -rf "${es_tmp_dir}"
 
-    # Inform the user that the installation is complete.
+    # Inform the user that the installation is complete and let them know where
+    # they can read more.
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"
+    es_echo "read 'effective shell' online at: www.effective-shell.com"
 
     # We have completed successfully.
     exit 0
