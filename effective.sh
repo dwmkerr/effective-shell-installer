@@ -39,7 +39,7 @@ set -e
     #                     appear to be at the same version as the download.
     #   es_script_version: updating during the build to the version.txt
     es_interactive="1"
-    es_source="https://effective-shell.com/downloads/effective-shell-playground.tar.gz"
+    es_source="https://effective-shell.com/downloads/effective-shell-samples.tar.gz"
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"

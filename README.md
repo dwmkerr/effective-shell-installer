@@ -43,3 +43,7 @@ There are a number of options that can be set to change how the samples are inst
 The version of the script is defined in the [`version.txt`](./version.txt) file. This makes it reasonably straightforward to script actions which require the version.
 
 Releasing in managed via [Release Please](https://github.com/googleapis/release-please) in the [`release-please.yaml`](./.github/workflows/release-please.yaml) workflow file.
+
+## Source
+
+The samples are available at: [github.com/dwmkerr/effective-shell/samples](https://github.com/effective-shell). The two sample repositories are available at in the [github.com/effective-shell](https://github.com/effective-shell) organisation. The repositories have to be hosted separately so that they can have their own commit history. The main Effective Shell project clones these repositories and adds them to the samples archive.
