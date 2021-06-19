@@ -32,11 +32,11 @@ If you want to run the installer non-interactively, you can set `ES_EXISTING_FOL
 
 There are a number of options that can be set to change how the samples are installed.
 
-| Option                      | Default   | Usage                                                                              |
-|-----------------------------|-----------|------------------------------------------------------------------------------------|
-| `ES_DEBUG`                  | `0`       | If set to `1` debug level log messages are printed.                                |
-| `ES_FORCE_INSTALL`          | `0`       | If set to `1` then samples are installed even if they appear to be up to date.     |
-| `ES_EXISTING_FOLDER_ACTION` | (Not Set) | Set to `d`, `o`, or `q` to delete, overwrite or quit if the samples folder exists. |
+| Option                      | Default   | Usage                                                                                                                   |
+|-----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
+| `ES_DEBUG`                  | `0`       | If set to `1` debug level log messages are printed.                                                                     |
+| `ES_FORCE_INSTALL`          | `0`       | If set to `1` then samples are installed even if they appear to be up to date.                                          |
+| `ES_EXISTING_FOLDER_ACTION` | (Not Set) | Set to `d`, `o`, or `q` to delete, overwrite or quit if the samples folder exists. If not set, the user will be prompted. |
 
 ## Versioning
 
