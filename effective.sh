@@ -28,6 +28,10 @@
 
 # Bail on errors.
 set -e
+set -o pipefail
+
+# Uncomment the below if you want to enable tracing to debug the script.
+# set -x
 
 # We put everything in braces - this is to ensure we execute only when the whole
 # script is downloaded.
