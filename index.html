@@ -28,6 +28,10 @@
 
 # Bail on errors.
 set -e
+set -o pipefail
+
+# Uncomment the below if you want to enable tracing to debug the script.
+# set -x
 
 # We put everything in braces - this is to ensure we execute only when the whole
 # script is downloaded.
@@ -43,7 +47,7 @@ set -e
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
-    es_script_version="0.5.0"
+    es_script_version="0.5.1"
     es_existing_folder_action="${ES_EXISTING_FOLDER_ACTION}"
     
     # Print a debug level message.
@@ -104,7 +108,10 @@ set -e
     rm "${es_tmp_tar}"
 
     # Let the user know what the version of the samples downloaded is.
-    version_downloaded=$(cat ${es_tmp_dir}/.version.txt)
+    # We cut out the version field of the package json for this.
+    version_downloaded=$(cat ${es_tmp_dir}/.package.json |\
+        grep version | head -n 1 | cut -d'"' -f 4)
+    
     es_echo "downloaded samples, version ${version_downloaded}"
 
     # Check to see if we can determine the installed version of the samples.
