@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.5.0...v0.5.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* use package.json for samples version number ([211cc3e](https://www.github.com/dwmkerr/effective-shell-installer/commit/211cc3eaf30364b042a93a3ce9dbb54e4b72c229))
+
 ## [0.5.0](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.4.4...v0.5.0) (2021-06-19)
 
 
