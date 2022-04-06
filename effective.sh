@@ -108,7 +108,10 @@ set -o pipefail
     rm "${es_tmp_tar}"
 
     # Let the user know what the version of the samples downloaded is.
-    version_downloaded=$(cat ${es_tmp_dir}/.version.txt)
+    # We cut out the version field of the package json for this.
+    version_downloaded=$(cat ${es_tmp_dir}/.package.json |\
+        grep version | head -n 1 | cut -d'"' -f 4)
+    
     es_echo "downloaded samples, version ${version_downloaded}"
 
     # Check to see if we can determine the installed version of the samples.
