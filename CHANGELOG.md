@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.5.2](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.5.1...v0.5.2) (2024-06-06)
+
+
+### Bug Fixes
+
+* samples path ([c64bbf9](https://www.github.com/dwmkerr/effective-shell-installer/commit/c64bbf906db7424c34276093f940ea6a26238cd5))
+
 ### [0.5.1](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.5.0...v0.5.1) (2022-04-06)
 
 
