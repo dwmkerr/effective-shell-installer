@@ -188,7 +188,7 @@ set -o pipefail
     # Inform the user that the installation is complete and let them know where
     # they can read more.
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"
-    es_echo "read 'effective shell' online at: www.effective-shell.com"
+    es_echo "read 'effective shell' online at: effective-shell.com"
 
     # We have completed successfully.
     exit 0
