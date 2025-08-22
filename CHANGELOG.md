@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.5.3](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.5.2...v0.5.3) (2025-08-22)
+
+
+### Bug Fixes
+
+* dash shell / mint compatibility ([cc47015](https://www.github.com/dwmkerr/effective-shell-installer/commit/cc47015d162b66c7d035d7cdc34a7c83dbb8bac5))
+* use shorter effective shell url ([a4d6aa8](https://www.github.com/dwmkerr/effective-shell-installer/commit/a4d6aa8faf235cf6d5773b14035e4a168083abe5))
+
 ### [0.5.2](https://www.github.com/dwmkerr/effective-shell-installer/compare/v0.5.1...v0.5.2) (2024-06-06)
 
 
