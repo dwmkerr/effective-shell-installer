@@ -64,8 +64,8 @@ fi
 
     # Print a message with a hint it's from the effective shell script.
     es_echo () {
-      local green='\e[0;32m'
-      local reset='\e[0m'
+      green='\e[0;32m'
+      reset='\e[0m'
       command printf "${green}effective-shell${reset}: %s\\n" "$*" 2>/dev/null
     }
 

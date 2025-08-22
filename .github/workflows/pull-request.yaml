@@ -57,4 +57,12 @@ jobs:
         ${{ matrix.exec }} effective.sh
       env:
         ES_DEBUG: 1
+    
+    - name: Verify installation
+      run: |
+        echo "Checking installation results..."
+        ls -la ~/effective-shell/ || echo "❌ effective-shell directory not found"
+        [ -f ~/effective-shell/.version.txt ] && echo "✅ Version file exists: $(cat ~/effective-shell/.version.txt)" || echo "❌ Version file missing"
+        [ -d ~/effective-shell ] && echo "✅ Directory size: $(du -sh ~/effective-shell/)" || echo "❌ Directory missing"
+        find ~/effective-shell -type f | head -10 || echo "❌ No files found"
 
