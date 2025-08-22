@@ -22,21 +22,39 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        shell: [bash, dash]
+        include:
+          - shell: bash
+            install: ""
+            exec: "bash"
+          - shell: dash
+            install: "dash"
+            exec: "dash"
+          - shell: ash
+            install: "ash"
+            exec: "ash"
+          - shell: zsh
+            install: "zsh"
+            exec: "zsh"
+          - shell: ksh
+            install: "ksh"
+            exec: "ksh"
+          - shell: busybox-sh
+            install: "busybox"
+            exec: "busybox sh"
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Install dash
-      run: sudo apt-get update && sudo apt-get install -y dash
-      if: matrix.shell == 'dash'
+    - name: Install shell
+      run: sudo apt-get update && sudo apt-get install -y ${{ matrix.install }}
+      if: matrix.install != ''
     
     - name: Test script with ${{ matrix.shell }}
       run: |
         # Set non-interactive mode and test script
         export ES_EXISTING_FOLDER_ACTION=d
         export ES_FORCE_INSTALL=1
-        ${{ matrix.shell }} effective.sh
+        ${{ matrix.exec }} effective.sh
       env:
         ES_DEBUG: 1
 
