@@ -10,10 +10,6 @@
         {
           "type": "generic",
           "path": "version.txt"
-        },
-        {
-          "type": "generic", 
-          "path": "effective.sh"
         }
       ]
     }
