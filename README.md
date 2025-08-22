@@ -8,8 +8,8 @@ This is the install script for the https://effective-shell.com samples. This rep
 
 To install the [Effective Shell](https://effective-shell.com) samples, just run:
 
-```sh
-curl effective.sh | sh
+```bash
+curl -fsSL effective.sh | bash
 ```
 
 That's it! This will download the Effective Shell samples to the folder:
