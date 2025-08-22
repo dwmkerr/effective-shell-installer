@@ -28,7 +28,12 @@
 
 # Bail on errors.
 set -e
-set -o pipefail
+# Only set pipefail in bash - dash and other POSIX shells don't support this option.
+# This provides extra safety in bash while maintaining compatibility with Linux Mint
+# and other systems where /bin/sh points to dash.
+if [ -n "$BASH_VERSION" ]; then
+    set -o pipefail
+fi
 
 # Uncomment the below if you want to enable tracing to debug the script.
 # set -x
