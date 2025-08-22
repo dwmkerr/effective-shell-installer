@@ -52,7 +52,7 @@ fi
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
-    es_script_version="%%ES_SCRIPT_VERSION%%"
+    es_script_version="0.5.2" # x-release-please-version
     es_existing_folder_action="${ES_EXISTING_FOLDER_ACTION}"
     
     # Print a debug level message.
