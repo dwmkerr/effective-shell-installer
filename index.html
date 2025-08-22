@@ -28,7 +28,12 @@
 
 # Bail on errors.
 set -e
-set -o pipefail
+# Only set pipefail in bash - dash and other POSIX shells don't support this option.
+# This provides extra safety in bash while maintaining compatibility with Linux Mint
+# and other systems where /bin/sh points to dash.
+if [ -n "$BASH_VERSION" ]; then
+    set -o pipefail
+fi
 
 # Uncomment the below if you want to enable tracing to debug the script.
 # set -x
@@ -47,7 +52,7 @@ set -o pipefail
     es_dir="${HOME}/effective-shell"
     es_debug="${ES_DEBUG:-0}"
     es_force_install="${ES_FORCE_INSTALL:-0}"
-    es_script_version="0.5.2"
+    es_script_version="0.5.3"
     es_existing_folder_action="${ES_EXISTING_FOLDER_ACTION}"
     
     # Print a debug level message.
@@ -59,8 +64,8 @@ set -o pipefail
 
     # Print a message with a hint it's from the effective shell script.
     es_echo () {
-      local green='\e[0;32m'
-      local reset='\e[0m'
+      green='\e[0;32m'
+      reset='\e[0m'
       command printf "${green}effective-shell${reset}: %s\\n" "$*" 2>/dev/null
     }
 
@@ -188,7 +193,7 @@ set -o pipefail
     # Inform the user that the installation is complete and let them know where
     # they can read more.
     es_echo "installed samples version ${version_downloaded} to '${es_dir}'"
-    es_echo "read 'effective shell' online at: www.effective-shell.com"
+    es_echo "read 'effective shell' online at: effective-shell.com"
 
     # We have completed successfully.
     exit 0
