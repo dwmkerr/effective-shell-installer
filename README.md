@@ -1,6 +1,6 @@
 # effective-shell-installer
 
-[![Release Please](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell-installer?label=Version) 
+[![Release Please](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml/badge.svg)](https://github.com/dwmkerr/effective-shell-installer/actions/workflows/release-please.yaml) ![Version Badge](https://img.shields.io/github/v/tag/dwmkerr/effective-shell-installer?label=Version) [![Donate](https://img.shields.io/badge/thanks-donate-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/dwmkerr/sponsorships?frequency=one-time&amount=5)
 
 This is the install script for the https://effective-shell.com samples. This repo hosts the https://effective.sh installer.
 
